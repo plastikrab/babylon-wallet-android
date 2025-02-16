@@ -4,6 +4,7 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.babylon.wallet.android.data.dapp.model.Account
 import com.radixdlt.sargon.Account
 import kotlinx.coroutines.flow.StateFlow
 
