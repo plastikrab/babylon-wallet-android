@@ -6,6 +6,12 @@ pluginManagement {
     }
 }
 
+Properties properties = new Properties()
+File propertiesFile = new File('local.properties')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -14,10 +20,10 @@ dependencyResolutionManagement {
         mavenCentral()
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/radixdlt/maven-pkg")
+            url = uri("https://github.com/radixdlt/maven-pkg/packages/")
             credentials {
-                username = System.getenv('GPR_USER')
-                password = System.getenv('GPR_TOKEN')
+                username = properties.getProperty("GPR_USER")
+                password = properties.getProperty("GPR_TOKEN")
             }
         }
         maven { url 'https://jitpack.io' }
